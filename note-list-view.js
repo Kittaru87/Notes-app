@@ -5,7 +5,7 @@
   }
 
   NoteListView.prototype.noteView = function(){
-    map1 = this.notelist.noteArray.map(item => item.text)
+    map1 = this.notelist.noteArray.map(item => item.text.slice(0, 20))
     joined = map1.join().replace(",", "</div></li><li><div>");
     return "<ul><li><div>" + joined + "</div></li></ul>"
   };

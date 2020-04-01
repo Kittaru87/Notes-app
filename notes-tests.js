@@ -1,3 +1,4 @@
+
 var assert = {
   isTrue: function(assertionToCheck) {
     if (!assertionToCheck) {
@@ -42,10 +43,56 @@ function testNoteListViewInstantiatesWithNoteList(){
 
 testNoteListViewInstantiatesWithNoteList();
 
-function testNoteView(){
-  const p = new NoteListView(n);
-  assert.isTrue(p.noteView() === "<ul><li><div>first thing</div></li><li><div>second thing</div></li></ul>");
+function testFirst20Characters(){
+  function MockNote(){
+    return {text: "favourite drink: seltzer"}
+  };
+  let mockNote = new MockNote();
+  function MockNoteList(){
+    return {noteArray: [mockNote]}
+  };
+  let mocknotelist = new MockNoteList(mockNote);
+  let newthing = new NoteListView(mocknotelist)
+  console.log(newthing.noteView());
+  assert.isTrue(newthing.noteView() === "<ul><li><div>favourite drink: sel</div></li></ul>");
 };
 
-testNoteView()
+testFirst20Characters()
+
+function testNoteControllerInstantiates(){
+  const z = new NoteController(n);
+  assert.isTrue(z instanceof NoteController)
+};
+
+testNoteControllerInstantiates()
+
+function testHTMLOutput(){
+  let nl = new NoteList();
+  nl.createNote("Lovely");
+  nl.createNote("What");
+  let notelistview = new NoteListView(nl);
+  assert.isTrue(notelistview.noteView() === "<ul><li><div>Lovely</div></li><li><div>What</div></li></ul>");
+};
+
+testHTMLOutput()
+
+function testSingleNoteViewInstantiates(){
+  let wee = new SingleNoteView();
+  assert.isTrue(wee instanceof SingleNoteView)
+};
+
+testSingleNoteViewInstantiates()
+
+function testSingleNoteView(){
+  function MockNote(){
+    return {text: "favourite drink: seltzer"}
+  };
+  let mockNote = new MockNote();
+  let snv = new SingleNoteView(mockNote)
+  assert.isTrue(snv.display() === "<div>favourite drink: seltzer</div>")
+};
+
+testSingleNoteView();
+
+
 

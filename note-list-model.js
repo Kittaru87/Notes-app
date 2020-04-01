@@ -22,8 +22,9 @@ function NoteList(){
 
   var n = new NoteList();
 
-  a = n.createNote("first thing")
-  b = n.createNote("second thing")
+ n.createNote("first thing")
+ n.createNote("second thing")
+
    
   console.log(n.noteArray)
   console.log(n.getNotes())
