@@ -3,8 +3,11 @@ console.log("Note List View tests")
 console.log("Test it instantiates properly")
 
 function testNoteListViewInstantiatesWithNoteList(){
+  const n = new NoteList();
+  n.createNote("Lovely");
+  n.createNote("What");
   const p = new NoteListView(n);
-  assert.isTrue(p.notelist.noteArray.length === 2);
+  assert.isTrue(p.list.noteArray.length === 2);
 };
 
 testNoteListViewInstantiatesWithNoteList();
@@ -21,8 +24,8 @@ function testFirst20Characters(){
   };
   let mocknotelist = new MockNoteList(mockNote);
   let newthing = new NoteListView(mocknotelist)
-  console.log(newthing.noteView());
-  assert.isTrue(newthing.noteView() === "<ul><li><div>favourite drink: sel</div></li></ul>");
+  assert.isTrue(newthing.noteView() === "<ul><li><div><a href='#note_0' id='0'>favourite drink: sel</a></div></li></ul>");
 };
 
 testFirst20Characters()
+

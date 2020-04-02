@@ -10,25 +10,14 @@ function NoteList(){
     return note;
   };
 
-  NoteList.prototype.getNotes = function(){
-    return this.noteArray;
+  NoteList.prototype.getNoteByID = function(id){
+    return this.noteArray[id].text;
   };
 
   exports.NoteList = NoteList;
   exports.NoteList.createNote = NoteList.createNote;
   exports.NoteList.getNotes = NoteList.getNotes;
+  exports.NoteList.getNoteByID = NoteList.getNoteByID;
 
 })(this);
-
-  var n = new NoteList();
-
- n.createNote("first thing")
- n.createNote("second thing")
-
-   
-  console.log(n.noteArray)
-  console.log(n.getNotes())
-  console.log(n.noteArray[0].text)
-  console.log(n.noteArray[1].text)
-  console.log(n.noteArray.length)
 

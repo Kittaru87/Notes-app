@@ -13,6 +13,4 @@
 
 })(this);
 
-var p = new Note("Hello")
-p.getText();
 

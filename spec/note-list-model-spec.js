@@ -18,8 +18,18 @@ function testNoteArray() {
   n.createNote("first thing");
   n.createNote("second thing");
   assert.isTrue(n.noteArray.length === 2);
-  assert.isTrue(n.getNotes()[0].getText() === "first thing");
-  assert.isTrue(n.getNotes()[1].getText() === "second thing");
 };
 
 testNoteArray();
+
+console.log("Test that each note is given a unique id")
+
+function testGetNoteByID(){
+  const n = new NoteList();
+  n.createNote("first thing");
+  n.createNote("second thing");
+  assert.isTrue(n.getNoteByID(0) === "first thing")
+  assert.isTrue(n.getNoteByID(1) === "second thing")
+};
+
+testGetNoteByID();
