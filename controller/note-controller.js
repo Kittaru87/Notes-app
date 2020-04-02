@@ -29,8 +29,16 @@
   NoteController.prototype.createNewNote = function () {
     document.getElementById('text').addEventListener('submit', function(event){
       event.preventDefault()
-      console.log("event")
+      console.log()
     });
+
+    function logSubmit(event) {
+      console.log(`Form Submitted! Time stamp: ${document.getElementById('new_note')}`);
+      event.preventDefault();
+    }
+    
+    const form = document.getElementById('text');
+    form.addEventListener('submit', logSubmit);
   };
 
   exports.NoteController = NoteController;
