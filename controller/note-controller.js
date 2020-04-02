@@ -20,15 +20,15 @@
   };
 
   NoteController.prototype.createNewNote = function () {
-    form.addEventListener('submit', function(event){
-      event.preventDefault();
-      console.log("event");
+    document.getElementById("submit").addEventListener("click", function(event){
+      event.preventDefault()
     });
-  }
+  };
 
   exports.NoteController = NoteController;
   exports.NoteController.insertNote = NoteController.insertNote;
   exports.NoteController.showAllOfSingleNote = NoteController.showAllOfSingleNote;
+  exports.NoteController.createNewNote = NoteController.createNewNote;
 
 })(this);
 
@@ -45,3 +45,4 @@ var n = new NoteList();
 
  notecontrollerexample.showList();
  notecontrollerexample.showAllOfSingleNote();
+ notecontrollerexample.createNewNote();
