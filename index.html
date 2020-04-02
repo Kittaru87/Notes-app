@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico">
   </head>
   <body id="everything">  
-    <button type="submit" name="submit" id="back">Back to homepage</button>
+    <button id="back" onclick="goBack()">Back to homepage</button>
     <form id="text" action="#new" method="post">
       <h3>Add note</h3>
       <textarea name="new_note" id="new_note" cols="60" rows="5" placeholder="insert text here" style="border:solid 1px black";></textarea>
@@ -28,5 +28,12 @@
     <script src="./spec/note-list-view-spec.js"></script>
     <script src="./spec/note-controller-spec.js"></script>
     <script src="./spec/single-note-view-spec.js"></script>
+    <script>
+      function goBack() {
+      
+      window.history.back();
+  
+  };
+    </script>
   </body>
 </html>

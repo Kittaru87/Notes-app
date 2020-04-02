@@ -9,11 +9,13 @@
   NoteController.prototype.showList = function(){
      let noteDisplay = document.getElementById('app');
      noteDisplay.innerHTML = this.notelistview.noteView();
+     document.getElementById('back').style.display = "none";
   };
 
   NoteController.prototype.hideCreateNote = function() {
     window.addEventListener('hashchange', function(){
       document.getElementById('text').style.display = "none";
+      document.getElementById('back').style.display = "unset";
     });  
   };
 
@@ -28,7 +30,7 @@
   
   NoteController.prototype.createNewNote = function () {
     var list = this.notelist
-    document.getElementById('text').addEventListener('submit', function(event){
+    window.addEventListener('submit', function(event){
       let new_note = document.getElementById('new_note').value
       list.createNote(new_note)
       console.log(`Note Submitted! ${new_note}`)
@@ -43,11 +45,11 @@
     };
 
       //doesn't work yet
-    function goBackToHomePage() {
-      window.getElementById('back').addEventListener('submit', function(){
-        document.getElementById('everything')
-      })
-    };
+    // function goBack() {
+      
+    //     window.history.back();
+    
+    // };
 
     function resetTextArea() {
       document.getElementById('new_note').value = "";
