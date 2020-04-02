@@ -5,8 +5,6 @@ console.log("test it creates a note")
 function testCreateNote() {
   const x = new NoteList();
   assert.isTrue(x.createNote("one note").getText() === "one note");
-  assert.isTrue(x.createNote("other note"));
-  assert.isTrue(x.noteArray.length === 2);
 };
 
 testCreateNote();

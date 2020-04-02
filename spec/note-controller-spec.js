@@ -10,14 +10,11 @@ function testNoteControllerInstantiates(){
 
 testNoteControllerInstantiates()
 
-console.log("tests it outputs HTML with tags")
+console.log("tests that the notelist is empty when the note app loads")
 
-function testHTMLOutput(){
-  let nl = new NoteList();
-  nl.createNote("Lovely");
-  nl.createNote("What");
-  let notelistview = new NoteListView(nl);
-  assert.isTrue(notelistview.noteView() === "<ul><li><div><a href='#note_0' id='0'>Lovely</a></div></li><li><div><a href='#note_1' id='1'>What</a></div></li></ul>");
+function testEmptyNoteList(){
+  const n = new NoteList();
+  assert.isTrue(document.getElementById('app').innerHTML === "<ul></ul>")
 };
 
-testHTMLOutput()
+testEmptyNoteList()

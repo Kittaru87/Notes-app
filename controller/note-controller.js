@@ -25,21 +25,34 @@
       hideCreateNote();
     }, false);
   };
-
+  
   NoteController.prototype.createNewNote = function () {
+    var list = this.notelist
     document.getElementById('text').addEventListener('submit', function(event){
+      let new_note = document.getElementById('new_note').value
+      list.createNote(new_note)
+      console.log(`Note Submitted! ${new_note}`)
+      updateNoteList(list)
+      resetTextArea()
       event.preventDefault()
-      console.log()
     });
-
-    function logSubmit(event) {
-      console.log(`Form Submitted! Time stamp: ${document.getElementById('new_note')}`);
-      event.preventDefault();
-    }
-    
-    const form = document.getElementById('text');
-    form.addEventListener('submit', logSubmit);
   };
+
+    function updateNoteList(list) {
+      document.getElementById('app').innerHTML = new NoteListView(list).noteView();
+    };
+
+      //doesn't work yet
+    function goBackToHomePage() {
+      window.getElementById('back').addEventListener('submit', function(){
+        document.getElementById('everything')
+      })
+    };
+
+    function resetTextArea() {
+      document.getElementById('new_note').value = "";
+    }
+
 
   exports.NoteController = NoteController;
   exports.NoteController.insertNote = NoteController.insertNote;
@@ -52,11 +65,6 @@
 
 var n = new NoteList();
 
- n.createNote("first thing gotta make this way more than 20 character")
- n.createNote("second thing also gotta have more than 20 characters to test")
- n.createNote("a third thing that hopefully works now as well")
- console.log(n.getNoteByID(0))
- console.log(n.getNoteByID(1))
 
  let notecontrollerexample = new NoteController(n)
 

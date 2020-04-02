@@ -16,7 +16,6 @@ function NoteList(){
 
   exports.NoteList = NoteList;
   exports.NoteList.createNote = NoteList.createNote;
-  exports.NoteList.getNotes = NoteList.getNotes;
   exports.NoteList.getNoteByID = NoteList.getNoteByID;
 
 })(this);
